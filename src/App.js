@@ -6,17 +6,51 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import NoteCreateForm from "./pages/notes/NoteCreateForm";
+import NotePage from "./pages/notes/NotePage";
+import NotesPage from "./pages/notes/NotesPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+  
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <NotesPage message="No results found. Adjust the search keyword." />
+            )}
+          />
+          <Route
+            exact
+            path="/feed"
+            render={() => (
+              <NotesPage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/liked"
+            render={() => (
+              <NotesPage
+                message="No results found. Adjust the search keyword or like a note."
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/notes/create" render={() => <NoteCreateForm />} />
+          <Route exact path="/notes/:id" render={() => <NotePage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
