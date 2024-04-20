@@ -9,6 +9,7 @@ import NoteCreateForm from "./pages/notes/NoteCreateForm";
 import NotePage from "./pages/notes/NotePage";
 import NotesPage from "./pages/notes/NotesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import NoteEditForm from "./pages/notes/NoteEditForm.js";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/notes/create" render={() => <NoteCreateForm />} />
           <Route exact path="/notes/:id" render={() => <NotePage />} />
+          <Route exact path="/notes/:id/edit" render={() => <NoteEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
