@@ -17,8 +17,10 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function NotesPage({ message, filter = "" }) {
+  const currentUser = useCurrentUser();
   const [notes, setNotes] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -44,7 +46,7 @@ function NotesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
 
   return (
