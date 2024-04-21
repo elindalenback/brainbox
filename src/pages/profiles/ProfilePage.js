@@ -19,26 +19,37 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Note from "../notes/Note";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [profileNotes, setProfileNotes] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
   const { id } = useParams();
+
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
+
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
-        ]);
+        const [{ data: pageProfile }, { data: profileNotes }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/notes/?owner__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfileNotes(profileNotes);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -101,8 +112,24 @@ function ProfilePage() {
   const mainProfileNotes = (
     <>
       <hr />
-      <p className="text-center">Profile owner's notes</p>
+      <p className="text-center">{profile?.owner}'s notes</p>
       <hr />
+      {profileNotes.results.length ? (
+        <InfiniteScroll
+          children={profileNotes.results.map((note) => (
+            <Note key={note.id} {...note} setNotes={setProfileNotes} />
+          ))}
+          dataLength={profileNotes.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileNotes.next}
+          next={() => fetchMoreData(profileNotes, setProfileNotes)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't created any notes yet.`}
+        />
+      )}
     </>
   );
 
