@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,6 +12,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 function NoteEditForm() {
   const [errors, setErrors] = useState({});
@@ -23,6 +24,22 @@ function NoteEditForm() {
   const { title, content } = noteData;
 
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/notes/${id}/`);
+        const { title, content, image, is_owner } = data;
+
+        is_owner ? setNoteData({ title, content, image }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setNoteData({
@@ -33,25 +50,16 @@ function NoteEditForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    const requestData = {
-      title: title,
-      content: content,
-      tags: [], // Empty array as placeholder
-      notebook: "", // Set to the appropriate notebook ID
-    };
-    
-    console.log("Request Payload:", requestData); // Log the request payload
-  
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("content", content);
+
     try {
-      const { data } = await axiosReq.post("/notes/", requestData);
-  
-      console.log("Successful response:", data);
-      history.push(`/notes/${data.id}`);
+      await axiosReq.put(`/notes/${id}/`, formData);
+      history.push(`/notes/${id}`);
     } catch (err) {
-      console.log("Error:", err.response?.data);
-      console.log("Status Code:", err.response?.status);
-  
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -102,7 +110,7 @@ function NoteEditForm() {
                 className={`${btnStyles.Button} ${btnStyles.Blue} mt-3`}
                 type="submit"
               >
-                create
+                save
               </Button>
             </Form.Group>
           </div>
