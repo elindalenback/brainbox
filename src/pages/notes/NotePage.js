@@ -8,10 +8,16 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Note from "./Note";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function NotePage() {
   const { id } = useParams();
   const [note, setNote] = useState({ results: [] });
+
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -35,7 +41,17 @@ function NotePage() {
         <p>Popular profiles for mobile</p>
         <Note {...note.results[0]} setNotes={setNote} notePage />
         <Container className={appStyles.Content}>
-          Comments
+          {currentUser ? (
+            <CommentCreateForm
+            profile_id={currentUser.profile_id}
+            profileImage={profile_image}
+            note={id}
+            setNote={setNote}
+            setComments={setComments}
+          />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
