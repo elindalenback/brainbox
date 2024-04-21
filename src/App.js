@@ -11,6 +11,9 @@ import NotesPage from "./pages/notes/NotesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import NoteEditForm from "./pages/notes/NoteEditForm.js";
 import ProfilePage from "./pages/profiles/ProfilePage.js";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 
 function App() {
@@ -55,6 +58,21 @@ function App() {
           <Route exact path="/notes/:id" render={() => <NotePage />} />
           <Route exact path="/notes/:id/edit" render={() => <NoteEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
