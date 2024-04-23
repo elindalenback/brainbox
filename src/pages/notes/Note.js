@@ -7,6 +7,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Badge from "react-bootstrap/Badge";
 
 
 const Note = (props) => {
@@ -20,6 +21,7 @@ const Note = (props) => {
     like_id,
     title,
     content,
+    tags_data,
     updated_at,
     notePage,
     setNotes,
@@ -74,6 +76,8 @@ const Note = (props) => {
     }
   };
 
+  console.log("Tags Data:", tags_data);
+
   return (
     <Card className={styles.Note}>
       <Card.Body>
@@ -120,6 +124,23 @@ const Note = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
+        </div>
+        <div className={styles.TagsContainer}>
+          {tags_data && tags_data.length > 0 ? (
+            <>
+              <span>Tags: </span>
+              {tags_data.map((tag) => (
+                <Badge
+                  key={tag.id}
+                  pill
+                  variant="secondary"
+                  className="mr-2 mb-4"
+                >
+                  {tag.name}
+                </Badge>
+              ))}
+            </>
+          ) : null}
         </div>
       </Card.Body>
     </Card>
