@@ -15,6 +15,8 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound.js";
+import Polls from "./pages/polls/Polls.js";
+import PollsCreateForm from "./pages/polls/PollsCreateForm.js";
 
 
 function App() {
@@ -59,6 +61,8 @@ function App() {
           <Route exact path="/notes/:id" render={() => <NotePage />} />
           <Route exact path="/notes/:id/edit" render={() => <NoteEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/polls" render={() => <Polls />} />
+          <Route exact path="/polls/create" render={() => <PollsCreateForm />} />
           <Route
             exact
             path="/profiles/:id/edit/username"
