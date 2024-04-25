@@ -35,10 +35,7 @@ function NotePage() {
         ]);
         setNote({ results: [note] });
         setComments(comments);
-        console.log(note);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();

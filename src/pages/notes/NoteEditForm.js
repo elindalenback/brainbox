@@ -33,9 +33,7 @@ function NoteEditForm() {
         const { title, content, image, is_owner } = data;
 
         is_owner ? setNoteData({ title, content, image }) : history.push("/");
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -59,7 +57,6 @@ function NoteEditForm() {
       await axiosReq.put(`/notes/${id}/`, formData);
       history.push(`/notes/${id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

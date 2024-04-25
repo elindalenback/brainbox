@@ -43,9 +43,7 @@ const PollsCreateForm = () => {
         choices: choices.map((choice) => ({ choice_text: choice })),
       };
 
-      const response = await axios.post("/questions/", payload);
-
-      console.log("Poll created:", response.data);
+      await axios.post("/questions/", payload);
 
       setQuestionText("");
       setChoices([]);

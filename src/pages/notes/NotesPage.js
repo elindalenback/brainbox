@@ -34,9 +34,7 @@ function NotesPage({ message, filter = "" }) {
         const { data } = await axiosReq.get(`/notes/?${filter}search=${query}`);
         setNotes(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);

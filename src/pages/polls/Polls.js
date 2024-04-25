@@ -33,7 +33,6 @@ const Polls = () => {
             }
             
           });
-          console.log(JSON.stringify(initialVotes))
           setUserVotes(initialVotes);
         }
       } catch (error) {
@@ -58,7 +57,6 @@ const Polls = () => {
       // Update the vote count for the selected choice
       const choiceResponse = await axios.get(`/questions/${questionId}/choices/${choiceId}/`);
       let userList = choiceResponse.data.users; 
-      console.log(JSON.stringify(currentUser))
       const currentId = currentUser.pk; // Fix it
       userList.push(currentId)
       let newVoteCount = parseInt(choiceResponse.data.votes) + 1;

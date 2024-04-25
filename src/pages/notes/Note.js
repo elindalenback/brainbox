@@ -39,9 +39,7 @@ const Note = (props) => {
     try {
       await axiosRes.delete(`/notes/${id}/`);
       history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleLike = async () => {
@@ -55,9 +53,7 @@ const Note = (props) => {
             : note;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUnlike = async () => {
@@ -71,12 +67,8 @@ const Note = (props) => {
             : note;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
-
-  console.log("Tags Data:", tags_data);
 
   return (
     <Card className={styles.Note}>
