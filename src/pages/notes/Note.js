@@ -8,6 +8,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Badge from "react-bootstrap/Badge";
+import Report from "../../components/Report";
 
 
 const Note = (props) => {
@@ -116,6 +117,7 @@ const Note = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
+          {currentUser && <Report noteId={id} />}
         </div>
         <div className={styles.TagsContainer}>
           {tags_data && tags_data.length > 0 ? (

@@ -40,7 +40,7 @@ const Report = ({ noteId }) => {
     event.preventDefault();
 
     try {
-      await axiosReq.note("/reports/", {
+      await axiosReq.post("/reports/", {
         note: noteId,
         reason,
         description,
@@ -98,14 +98,9 @@ const ReportModal = ({
         make a report!
       </h5>
       <p>
-        We highly encourage our community to participate and share notes.
-        However, if the note falls under Spam, Inappropriate content or any
-        other sort of inadequate submission, we will take action.
-      </p>
-      <p>
-        Before you file a report against a fellow community user, make sure this
-        Note goes against the Rules & Community guidelines of the "Code of
-        Conduct" in the Terms of Service.
+        We strongly encourage our community to contribute and share their notes.
+        However, if a note is deemed spammy, contains inappropriate content,
+        or is otherwise unsuitable, we will take appropriate measures.
       </p>
       <Form onSubmit={onSubmit}>
         <div>
