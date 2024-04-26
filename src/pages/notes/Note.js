@@ -2,14 +2,12 @@ import React from "react";
 import styles from "../../styles/Note.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Badge from "react-bootstrap/Badge";
 import Report from "../../components/Report";
-
 
 const Note = (props) => {
   const {
@@ -86,8 +84,26 @@ const Note = (props) => {
         </Media>
       </Card.Body>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
+        {notePage ? (
+          <div>
+            {title && <Card.Title className="text-center">{title}</Card.Title>}
+            <Card.Text>{content}</Card.Text>
+          </div>
+        ) : (
+          <Link to={`/notes/${id}`}>
+            <div>
+              {title && <Card.Title className="text-center">{title}</Card.Title>}
+              {content.length > 250 ? (
+                <div>
+                  <Card.Text>{content.slice(0, 250)}...</Card.Text>
+                  <Link to={`/notes/${id}`} className={styles.ReadeMoreLink}>Read more</Link>
+                </div>
+              ) : (
+                <Card.Text>{content}</Card.Text>
+              )}
+            </div>
+          </Link>
+        )}
         <div className={styles.NoteBar}>
           {is_owner ? (
             <OverlayTrigger
