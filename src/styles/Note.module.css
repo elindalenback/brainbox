@@ -16,7 +16,7 @@ h5 {
 }
   
 .Heart:hover {
-    color: #2142b2;
+    color: #5C5C5C;
 }
   
 .HeartOutline:hover {
@@ -25,4 +25,12 @@ h5 {
 
 .ReadeMoreLink {
     color: #f85032;
+}
+
+.ReadeMoreLink:hover {
+    color: #5C5C5C;
+}
+
+.NotePageLink:hover {
+    color: black;
 }

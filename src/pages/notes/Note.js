@@ -90,7 +90,7 @@ const Note = (props) => {
             <Card.Text>{content}</Card.Text>
           </div>
         ) : (
-          <Link to={`/notes/${id}`}>
+          <Link to={`/notes/${id}`} className={styles.NotePageLink}>
             <div>
               {title && <Card.Title className="text-center">{title}</Card.Title>}
               {content.length > 250 ? (
