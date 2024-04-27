@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
+import logo from "../../assets/brainbox-logo-thin.png";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -115,7 +116,8 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
+          src={logo}
+          alt="logo"
         />
       </Col>
     </Row>
