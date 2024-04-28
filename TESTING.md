@@ -3,7 +3,7 @@
 ## Validator Testing
 
 ### ESLint
-Eslint has been installed and configured. All code passes without errors. The only error logged is related to the Import.
+Eslint has been installed and configured. All code passes without any errors that affect the functionallity. The errors loged are related to react/prop-types.
 
 ### CSS
 No errors were found when passing my CSS file through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)

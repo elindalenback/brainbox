@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from 'prop-types'; // Import PropTypes
 
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -46,7 +47,6 @@ function NotesPage({ message, filter = "" }) {
       clearTimeout(timer);
     };
   }, [filter, query, pathname, currentUser]);
-
 
   return (
     <Row className="h-100">
@@ -96,5 +96,11 @@ function NotesPage({ message, filter = "" }) {
     </Row>
   );
 }
+
+// Define PropTypes
+NotesPage.propTypes = {
+  message: PropTypes.string.isRequired,
+  filter: PropTypes.string,
+};
 
 export default NotesPage;
