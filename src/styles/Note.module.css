@@ -24,11 +24,11 @@ h5 {
 }
 
 .ReadeMoreLink {
-    color: #f85032;
+    color: #5C5C5C;
 }
 
 .ReadeMoreLink:hover {
-    color: #5C5C5C;
+    color: #f85032;
 }
 
 .NotePageLink:hover {

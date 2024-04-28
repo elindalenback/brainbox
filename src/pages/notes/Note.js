@@ -135,7 +135,7 @@ const Note = (props) => {
           )}
           {likes_count}
           <Link to={`/notes/${id}`}>
-            <i className="far fa-comments" />
+            <i className="far fa-comments" title={`View comments for ${title}`} />
           </Link>
           {comments_count}
           {currentUser && <Report noteId={id} />}
