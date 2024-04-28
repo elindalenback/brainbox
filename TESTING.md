@@ -128,24 +128,30 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/#) with no
 | Change password       | Click      | User can change password                                           | Pass      |
 | Notes                 | Display    | Users can see there own notes                                      | Pass      |
 
-
 ### Fixed Bugs
 
-### Fixed Bugs
+1. **Tag Display Issue**
 
-#### 1. Tag Display Issue
-- Previously, there was a bug where tags were not displaying properly on the frontend. The issue was traced back to the backend code, where the incorrect tag data was being used. Specifically, the system was attempting to render "tag_data" instead of "tag". This has been rectified by updating the backend logic to correctly pass the tag information, ensuring that tags now display as intended.
+   Previously, there was a bug where tags were not displaying properly on the frontend. The issue was traced back to the backend code, where the incorrect tag data was being used. Specifically, the system was attempting to render "tag_data" instead of "tag". This has been rectified by updating the backend logic to correctly pass the tag information, ensuring that tags now display as intended.
 
-#### 2. Poll Page Data Routing Problem
-- Another bug encountered was related to the functionality of the poll page. Data was not being directed to the appropriate destination, resulting in incorrect display or processing of poll information. Through debugging, it was discovered that the data routing mechanism was flawed, causing the data to be misdirected. This issue has been addressed by implementing the correct routing logic, ensuring that poll data now reaches its intended location seamlessly.
+2. **Poll Page Data Routing Problem**
+
+   Another bug encountered was related to the functionality of the poll page. Data was not being directed to the appropriate destination, resulting in incorrect display or processing of poll information. Through debugging, it was discovered that the data routing mechanism was flawed, causing the data to be misdirected. This issue has been addressed by implementing the correct routing logic, ensuring that poll data now reaches its intended location seamlessly.
+
+3. **Frontend-Backend Interaction Issue**
+
+   There was a bug preventing my frontend deployed project from effectively communicating with my backend. This issue was resolved after reinstalling all the backend requirements following the Code Institute Moments walkthrough. Ensuring the correct versions in my backend for this project called brainbox-api enabled successful deployment, resolving the issue and restoring full functionality.
 
 ### Unfixed Bugs
 
 #### 1. Login Issues on Safari Mobile Browser
+
 There are reported difficulties when attempting to log in using the Safari browser on mobile devices. Users encounter obstacles preventing successful login, which could potentially impact user experience. This issue was identified during the testing phase and remains unresolved. Users can log in if they disable cookies in their settings.
 
 #### 2. Inability to Remove Votes on Poll Site
+
 On the poll site, users face a limitation where they cannot retract their votes once submitted. This issue was identified during the testing phase and remains unresolved.
 
 #### 3. Users can access the polls creation url
+
 This is supposed to be restricted to admin only. At this point of deployment unfortinutelly that issue is not resolved. 
