@@ -782,6 +782,13 @@ Explore the upcoming features planned for BrainBox. These enhancements aim to im
 > AC3: Ensure recipients of the shared note can view the note content without requiring a user account.
 </details>
 
+<details><summary>Restrict Poll Creation to Admin Users</summary>
+
+#### Restrict Poll Creation to Admin Users: 
+
+Currently, poll creation is accessible only via URL. In the future, this feature will be restricted to admin users with a dedicated button for easier access and management.
+</details>
+
 ## Technologies Used
 
 **React:** Utilized as the core JavaScript library for building the user interface.
