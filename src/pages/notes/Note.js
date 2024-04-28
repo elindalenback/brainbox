@@ -134,8 +134,8 @@ const Note = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
-          <Link to={`/notes/${id}`}>
-            <i className="far fa-comments" title={`View comments for ${title}`} />
+          <Link to={`/notes/${id}`} aria-label={`View comments for ${title}`}>
+            <i className="far fa-comments" />
           </Link>
           {comments_count}
           {currentUser && <Report noteId={id} />}
