@@ -399,3 +399,42 @@ The live link to the site can be found here - [BrainBox](https://brain-box-f-801
 - **Vote in Polls:** Enhances user engagement and interaction by enabling users to participate in polls created by the admin, contributing to a dynamic and interactive community.
 - **Routing:** Ensures smooth navigation between pages without page refreshes, enhancing user experience and efficiency.
 - **View User Statistics:** Enables users to gauge the activity and popularity of specific users on the platform, fostering transparency and engagement.
+
+## Design (UX)
+
+### Colour Palette
+
+In BrainBox, we've carefully selected a color palette to enhance readability, promote creativity, and provide a visually appealing experience. Here's a breakdown of our color choices:
+
+![Color Palette](docs/readme_images/color-palette.png)
+This color scheme was created by [Coolors](https://coolors.co/).
+
+- #2F2F2F: This subdued charcoal shade serves as a smoother contrast to the lighter elements, offering a refined alternative to stark black.
+
+- #FAF9F6: Our page background color, a soft off-white hue, creates a welcoming contrast against the content, ensuring clarity and readability.
+
+- #F48F66: Utilized for hover effects and page navigation highlights, this playful apricot color adds a touch of vibrancy and encourages exploration.
+
+- #067BC2: A vivid azure blue, adds a splash of color for additional detailing, infusing energy and dynamism into the interface.
+
+- #C4E7fD: This serene sky blue tone adorns the navigation bar and provides subtle detailing throughout the application, contributing to a cohesive and polished aesthetic.
+
+### Typography
+
+*Google Fonts was used to import the fonts.*
+
+The font used for this webpage was **Lato** a sans-serif font for clear readability that aligns with the overall page style.
+
+![Lato Font Example](docs/readme_images/lato-font.png)
+
+## Wireframes
+
+Wireframes were produced using Balsamiq. These wireframes were created prior to the project, serving as a conceptual representation of the forum's layout and features. Please note that they may not precisely reflect the final project, as some elements and features are subject to change or implementation. 
+
+<details>
+
+<summary>Wireframe</summary>
+
+![BrainBox Wireframe](docs/wireframe/brainbox-wireframe.png)
+</details>
+
