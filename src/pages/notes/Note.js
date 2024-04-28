@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Note.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip, Modal, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -29,6 +29,11 @@ const Note = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  
+  // State for confirmation modal
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const handleCloseConfirmation = () => setShowConfirmation(false);
+  const handleShowConfirmation = () => setShowConfirmation(true);
 
   const handleEdit = () => {
     history.push(`/notes/${id}/edit`);
@@ -79,7 +84,7 @@ const Note = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && notePage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
+            {is_owner && notePage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleShowConfirmation} />}
           </div>
         </Media>
       </Card.Body>
@@ -153,6 +158,22 @@ const Note = (props) => {
           ) : null}
         </div>
       </Card.Body>
+
+      {/* Confirmation Modal */}
+      <Modal show={showConfirmation} onHide={handleCloseConfirmation}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Delete</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this note?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseConfirmation}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Card>
   );
 };

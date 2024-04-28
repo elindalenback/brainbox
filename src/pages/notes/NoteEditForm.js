@@ -151,7 +151,7 @@ function NoteEditForm() {
                   <Form.Control
                     aria-label="Text"
                     as="textarea"
-                    placeholder="Text (Optional)"
+                    placeholder="Text"
                     name="content"
                     value={content}
                     rows={5}
