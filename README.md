@@ -6,6 +6,45 @@ The live link to the site can be found here - [BrainBox](https://brain-box-f-801
 
 ![site](docs/readme_images/brainbox-mockup.png)
 
+## Table of Contents
+
+- [BrainBox](#brainbox)
+  * [Site Owner Goals](#site-owner-goals)
+  * [User Stories](#user-stories)
+  * [Mapping User Stories to Project Goals](#mapping-user-stories-to-project-goals)
+  * [Design (UX)](#design--ux-)
+    + [Colour Palette](#colour-palette)
+    + [Typography](#typography)
+  * [Wireframes](#wireframes)
+  * [Features](#features)
+    + [Navigation Bar](#navigation-bar)
+    + [The Home Page](#the-home-page)
+      - [Most Followed Profiles](#most-followed-profiles)
+      - [Polls](#polls)
+      - [Notes](#notes)
+      - [Reports](#reports)
+    + [The Feed Page](#the-feed-page)
+    + [The Liked Page](#the-liked-page)
+    + [Search Functionality](#search-functionality)
+    + [Profile Page](#profile-page)
+    + [Create New Note](#create-new-note)
+      - [Tags](#tags)
+    + [Note Detail Page View](#note-detail-page-view)
+    + [Comments](#comments)
+    + [Sign In](#sign-in)
+    + [Sign Up](#sign-up)
+    + [Other Features](#other-features)
+  * [Future Features](#future-features)
+  * [Technologies Used](#technologies-used)
+    + [JavaScript and React Libraries](#javascript-and-react-libraries)
+    + [Other Technologies](#other-technologies)
+  * [Testing](#testing)
+  * [Deployment and Development](#deployment-and-development)
+  * [Credits](#credits)
+  * [Acknowledgments](#acknowledgments)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ## Site Owner Goals
 
 - To establish a collaborative platform where users can create, share, and discuss notes on various topics.
@@ -772,7 +811,6 @@ Explore the upcoming features planned for BrainBox. These enhancements aim to im
 - [PostgreSQL](https://www.postgresql.org/) was used as the database for this project.
 - [Lucidchart](https://lucid.app/documents#/dashboard) - used to create the database schema design
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
-
 
 ## Testing
 
