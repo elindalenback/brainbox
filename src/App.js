@@ -14,9 +14,9 @@ import ProfilePage from "./pages/profiles/ProfilePage.js";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import NotFound from "./components/NotFound.js";
-import Polls from "./pages/polls/Polls.js";
-import PollsCreateForm from "./pages/polls/PollsCreateForm.js";
+import NotFound from "./components/NotFound";
+import Polls from "./pages/polls/Polls";
+import PollsCreateForm from "./pages/polls/PollsCreateForm";
 
 
 function App() {

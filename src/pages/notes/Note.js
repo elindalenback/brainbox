@@ -95,19 +95,19 @@ const Note = (props) => {
             <Card.Text>{content}</Card.Text>
           </div>
         ) : (
-          <Link to={`/notes/${id}`} className={styles.NotePageLink}>
-            <div>
+          <div>
+            <Link to={`/notes/${id}`} className={styles.NotePageLink}>
               {title && <Card.Title className="text-center">{title}</Card.Title>}
-              {content.length > 250 ? (
-                <div>
-                  <Card.Text>{content.slice(0, 250)}...</Card.Text>
-                  <Link to={`/notes/${id}`} className={styles.ReadeMoreLink}>Read more</Link>
-                </div>
-              ) : (
-                <Card.Text>{content}</Card.Text>
-              )}
-            </div>
-          </Link>
+            </Link>
+            {content.length > 250 ? (
+              <div>
+                <Card.Text>{content.slice(0, 250)}...</Card.Text>
+                <Link to={`/notes/${id}`} className={styles.ReadeMoreLink}>Read more</Link>
+              </div>
+            ) : (
+              <Card.Text>{content}</Card.Text>
+            )}
+          </div>
         )}
         <div className={styles.NoteBar}>
           {is_owner ? (
