@@ -45,6 +45,10 @@ a:hover i {
     color: #F48F66;
     transition: color ease-in-out 0.3s;
 }
+
+input[type="file"] {
+    display: none;
+}
   
 i {
     color: #5C5C5C;

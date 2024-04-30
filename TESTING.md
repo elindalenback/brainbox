@@ -91,6 +91,17 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/#) with no
 | Poll button           | Click      | choose what you want to answer on the poll                         | Pass      |
 | Sign in to see poll   | Click      | Not visible if user in session                                     | Pass      |
 
+### Reporting a Note:
+| Element                | Action            | Expected Result                                                      | Pass/Fail |
+|------------------------|-------------------|----------------------------------------------------------------------|-----------|
+| Flag Icon              | Click             | Opens the report modal for the selected note                         | Pass      |
+| Report Modal           | Opened            | Modal opens with appropriate content and fields for reporting        | Pass      |
+| Reason Selection       | Select            | User can select a reason for reporting the note                      | Pass      |
+| Description Input      | Type              | User can provide a description for the report (optional)             | Pass      |
+| Report Button          | Click             | Submits the report for the selected note                              | Pass      |
+| Success Message        | Displayed         | Success message displayed upon successful report submission          | Pass      |
+| Cancel Button          | Click             | Closes the report modal                                              | Pass      |
+
 ### Note detail page:
 | Element                 | Action            | Expected Result                                                                 | Pass/Fail |
 |-------------------------|-------------------|---------------------------------------------------------------------------------|-----------|
@@ -148,10 +159,6 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/#) with no
 
 There are reported difficulties when attempting to log in using the Safari browser on mobile devices. Users encounter obstacles preventing successful login, which could potentially impact user experience. This issue was identified during the testing phase and remains unresolved. Users can log in if they disable cookies in their settings.
 
-#### 2. Inability to Remove Votes on Poll Site
-
-On the poll site, users face a limitation where they cannot retract their votes once submitted. This issue was identified during the testing phase and remains unresolved.
-
-#### 3. Users can access the polls creation url
+#### 2. Users can access the polls creation url
 
 This is supposed to be restricted to admin only. At this point of deployment unfortinutelly that issue is not resolved. 
