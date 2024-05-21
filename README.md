@@ -477,6 +477,235 @@ Wireframes were produced using Balsamiq. These wireframes were created prior to 
 ![BrainBox Wireframe](docs/wireframe/brainbox-wireframe.png)
 </details>
 
+## Reusable React Components
+
+This project leverages a modular approach by creating and reusing various React components to build the application's front-end efficiently. Below is a list of reusable components, along with descriptions and their usage within the application.
+
+### Components
+
+#### Asset.js
+**Description:**
+The Asset component is used to display various types of assets, such as a loading spinner, an image, and a message. It conditionally renders a spinner, an image with an optional source, and a message based on the props passed to it.
+
+**Usage:**
+- Used in NotFound.js to display a message when a page is not found.
+- Used in PopularProfiles.js to show a loading spinner while fetching profile data.
+- Used on the main page, liked page, feed page, and profile page for loading the notes.
+
+#### Avatar.js
+**Description:**
+The Avatar component displays an avatar image with optional accompanying text, that is the username for the different users. The size of the avatar can be customized via the height prop, which also sets the width to maintain a square shape.
+
+**Usage:**
+- Used in NavBar.js to display the current user's avatar and profile link.
+- Used in profile-related components to display user avatars such as for popular profiles, author of the note, and author of the comment.
+
+#### FormTagsField.js
+**Description:**
+The FormTagsField component allows users to add tags to a form by typing and pressing Enter. It manages a list of user-added tags, displays errors if too many tags are added, and provides functionality to remove tags. It also notifies a parent component of changes to the tags via a callback function.
+
+**Usage:**
+- Used in forms where tagging functionality is required, in this project it is used for creating or editing notes.
+
+#### MoreDropdown.js
+**Description:**
+The MoreDropdown component provides a dropdown menu with options to edit or delete an item. It uses a custom icon for the dropdown toggle, wich displays a pencil for edit and a garbage bin for delete, and can be extended to include additional dropdown items. The ProfileEditDropdown variation specifically provides options for editing profile details.
+
+**Usage:**
+- Used in for displaying a menu for notes and comments, to provide edit and delete functionality.
+- The ProfileEditDropdown variant is used in profile management sections to provide options for editing profile details.
+
+#### NavBar.js
+**Description:**
+The NavBar component renders a navigation bar with links to different parts of the application. It conditionally displays different sets of links based on the user's authentication status. It also includes a sign-out function and an avatar for the logged-in user.
+
+**Usage:**
+- Used as the main navigation bar across the entire application, ensuring consistent navigation options and user access control.
+
+#### NotFound.js
+**Description:**
+The NotFound component displays a message and an image when a page is not found. It uses the Asset component to show a "page not found" message and image, providing a user-friendly way to handle 404 errors.
+
+**Usage:**
+- Used as the fallback route component to handle 404 errors when a user navigates to an undefined route.
+
+#### Report.js
+**Description:**
+The Report component allows users to report a note by opening a modal where they can select a reason and provide a description. It handles the submission of the report to a backend endpoint and provides feedback on the success of the report. The ReportModal subcomponent manages the modal's structure and form inputs.
+
+**Usage:**
+- Used in components that display notes, providing users the ability to report inappropriate or spam content.
+
+### Auth
+
+#### SignInForm.js
+
+**Description:**
+The SignInForm component provides a form for users to sign in to the application. It includes input fields for username and password, along with options for error display and navigation to the sign-up page.
+
+**Usage:**
+- Rendered on the sign-in page to allow users to authenticate and access the application.
+- Utilized for user authentication and login functionality.
+
+#### SignUpForm.js
+
+**Description:**
+The SignUpForm component offers a form for users to sign up for a new account. It includes input fields for username, password, and password confirmation, along with options for error display and navigation to the sign-in page.
+
+**Usage:**
+- Displayed on the sign-up page to enable new users to create an account and access the application.
+- Utilized for user registration and account creation functionality.
+
+### Comments
+
+#### Comment.js
+**Description:**
+The Comment component represents a single comment within the application. It displays the commenter's avatar, username, *(Avatar.js)* timestamp, comment content, and provides options for editing and deleting *(MoreDropdown.js)* comments if the current user is the owner.
+
+**Usage:**
+- Rendered within the comment section of notes or posts where comments are displayed.
+- Utilized for each individual comment displayed on the page.
+
+#### CommentCreateForm.js
+**Description:**
+The CommentCreateForm component provides a form for users to create new comments. It includes a textarea for entering comment content and a button to submit the comment.
+
+**Usage:**
+- Used in the comment section of notes or posts to allow users to add new comments.
+- Reused whenever there's a need for comment creation functionality, in this project on the note page *(NotePage.js)*.
+
+#### CommentEditForm.js
+**Description:**
+The CommentEditForm component allows users to edit their existing comments. It displays the current comment content in a textarea and provides options to cancel editing or save changes.
+
+**Usage:**
+- Displayed when a user opts to edit their comment by clicking on the edit button within the comment component *(MoreDropdown.js)*.
+- Utilized for each comment that is being edited.
+
+### Notes
+
+#### NotePage.js
+**Description:**
+The NotePage component displays a single note along with its comments. Users can view the note content, comments, and interact by adding new comments.
+
+**Usage:**
+- Rendered when users navigate to view a specific note.
+- Displays the note content, comments, and provides functionality to add new comments.
+- Utilizes the Note and Comment components to render note details and comments.
+
+#### NotesPage.js
+**Description:**
+The NotesPage component displays a list of notes and provides search functionality to filter notes based on user input. It also includes pagination for fetching more notes.
+
+**Usage:**
+- Rendered on the main page for browsing notes.
+- Allows users to search for specific notes based on keywords.
+- Displays a list of notes, with the ability to load more notes dynamically.
+- Utilizes the Note component to render individual notes in the list.
+
+#### Note.js
+**Description:**
+The Note component displays details of a single note, including its title, content, owner information *(Avatar.js)*, likes, comments, and tags. It also provides options for editing and deleting the note *(MoreDropdown.js)*.
+
+**Usage:**
+- Used on the NotePage and NotesPage to render individual notes.
+- Allows users to interact with notes by viewing, editing, or deleting them.
+- Provides functionality to like notes and view comments associated with the note.
+
+#### NoteCreateForm.js
+**Description:**
+The NoteCreateForm component provides a form for users to create a new note. It includes input fields for title, content, and tags *(FormTagsField.js)*.
+
+**Usage:**
+- Rendered when users want to create a new note.
+- Allows users to input title, content, and tags for the new note.
+- Provides form validation and error handling for input fields.
+
+#### NoteEditForm.js
+**Description:**
+The NoteEditForm component renders a form for editing an existing note. It includes input fields for updating the note's title, content, and tags.
+
+**Usage:**
+- Rendered when users want to edit an existing note.
+- Displays current note details for editing.
+- Provides form validation and error handling for input fields.
+
+### Polls
+
+#### Polls.js
+**Description:**
+The Polls component is responsible for rendering and managing user interaction with polls, including voting on choices and displaying poll questions and choices.
+
+**Usage:**
+- Used to display polls and allow users to vote on choices.
+
+**Where Used:**
+- Used in the PollsPage component to display recent polls.
+
+#### PollsCreateForm.js
+**Description:**
+The PollsCreateForm component provides a form for users to create new polls by entering a question and multiple choices.
+
+**Usage:**
+- Used to create new polls with questions and choices.
+
+**Where Used:**
+- Used in the application to allow users to create new polls.
+
+#### PollsPage.js
+**Description:**
+The PollsPage component serves as the page for displaying recent polls.
+
+**Usage:**
+- Used to display recent polls to users.
+
+**Where Used:**
+- Rendered in the main application routing to provide a page for displaying recent polls.
+
+### Profiles
+
+#### PopularProfiles
+**Description:**
+The PopularProfiles component displays a list of popular user profiles, typically sorted by follower count.
+
+**Usage:**
+- Rendered on the homepage or profile-related pages to showcase popular users and encourage user engagement with the platform.
+
+#### Profile
+**Description:**
+The Profile component renders a user profile with options for following or unfollowing the user, depending on the current user's relationship with the profile.
+
+**Usage:**
+- Used to display user profiles and provide options for following or unfollowing users.
+
+#### ProfileEditForm
+**Description:**
+The ProfileEditForm component provides a form for users to edit their profile information, including their name, bio, and profile image.
+
+**Usage:**
+- Used to allow users to edit their profile information.
+
+#### ProfilePage
+**Description:**
+The ProfilePage component serves as the page for displaying user profiles, including profile information and associated notes.
+
+**Usage:**
+- Rendered in the main application routing to provide a page for displaying user profiles.
+
+#### UsernameForm
+**Description:**
+The UsernameForm component provides a form for users to change their username.
+
+**Usage:**
+- Used to allow users to change their username.
+
+#### UserPasswordForm
+**Description:**
+The UserPasswordForm component provides a form for users to change their password.
+
+**Usage:**
+- Used to allow users to change their password.
+
 ## Features 
 
 ### Navigation Bar
